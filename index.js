@@ -61,7 +61,13 @@ app.get("/api/products/:category", function (request, response) {
   const productsInACategory = products.filter(function (product) {
     return product.category === categoryName
   })
-  response.status(200).json(productsInACategory)
+
+  if (productsInACategory.length === 0) {
+    return response.status(404).json({
+      // error: true,
+      message: "Category not found"
+    })
+  } else {response.status(200).json(productsInACategory)} 
 }) 
 app.listen(PORT, function () {
   console.log(`App server has started on http://localhost:${PORT}`)
