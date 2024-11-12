@@ -62,8 +62,7 @@ app.get("/api/products/:category", function (request, response) {
     return product.category === categoryName
   })
   response.status(200).json(productsInACategory)
-})
-
+}) 
 app.listen(PORT, function () {
   console.log(`App server has started on http://localhost:${PORT}`)
 })
