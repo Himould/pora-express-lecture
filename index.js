@@ -64,7 +64,7 @@ app.get("/api/products/:category", function (request, response) {
 
   if (productsInACategory.length === 0) {
     return response.status(404).json({
-      // error: true,
+      error: true,
       message: "Category not found"
     })
   } else {response.status(200).json(productsInACategory)} 
